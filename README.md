@@ -21,7 +21,7 @@ After download unzip to any folder of your choice and from the bin folder run
 
 *Note: This will occupy port 61616*
 
-###From source
+#### From source
 
 To run the example, you need to start up the servers in **each** project by typing
 
@@ -31,7 +31,7 @@ To run the example, you need to start up the servers in **each** project by typi
 
 To stop the server hit <kbd>ctrl</kbd>+<kbd>c</kbd>
 
-###From built sample
+#### From built sample
 Under <quickstart> there are pre built jar files which can be used to run the sample.
 
 `java -jar quickstart/source-0.1-ALPHA.jar >> source.log &`
