@@ -34,8 +34,8 @@ public class RestServiceConfig {
 	@Bean
 	public IntegrationFlow inputFLow() {
 		return IntegrationFlows
-				.from(Http.inboundGateway("/address").requestMapping(m -> m.methods(HttpMethod.POST))
-						.requestPayloadType(String.class))
+				.from(Http.inboundGateway("/address").requestMapping(m -> m.methods(HttpMethod.GET))
+						.requestPayloadType(String.class).payloadExpression("#requestParams['query']"))
 				.transform(Transformers.toJson())
 				.publishSubscribeChannel(subscribers -> subscribers.subscribe(
 						f -> f.handle(Jms.outboundGateway(connectionFactory()).requestDestination("google.geocoding"))))
