@@ -32,7 +32,7 @@ To run the example, you need to start up the servers in **each** project by typi
 To stop the server hit <kbd>ctrl</kbd>+<kbd>c</kbd>
 
 ###From built sample
-Under </quickstart> there are pre built jar files which can be used to run the sample.
+Under <quickstart> there are pre built jar files which can be used to run the sample.
 
 `java -jar quickstart/source-0.1-ALPHA.jar >> source.log &`
 `java -jar quickstart/service-0.1-ALPHA.jar >> service.log &`
