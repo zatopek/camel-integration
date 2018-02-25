@@ -16,13 +16,23 @@ public class GeocodeResponse implements Serializable {
 	private static final long serialVersionUID = -9007413299079914631L;
 	@XmlElement
 	private String status;
-
+	@XmlElement
+	private String error_message;
+	
 	public String getStatus() {
 		return status;
 	}
 
 	public void setStatus(String status) {
 		this.status = status;
+	}
+
+	public String getError_message() {
+		return error_message;
+	}
+
+	public void setError_message(String error_message) {
+		this.error_message = error_message;
 	}
 
 	@XmlElement
@@ -94,8 +104,8 @@ public class GeocodeResponse implements Serializable {
 		private String long_name;
 		@XmlElement
 		private String short_name;
-		@XmlElement
-		private String type;
+		@JacksonXmlElementWrapper(useWrapping = false)
+		private List<String> type;
 
 		public String getLong_name() {
 			return long_name;
@@ -113,11 +123,11 @@ public class GeocodeResponse implements Serializable {
 			this.short_name = short_name;
 		}
 
-		public String getType() {
+		public List<String> getType() {
 			return type;
 		}
 
-		public void setType(String type) {
+		public void setType(List<String> type) {
 			this.type = type;
 		}
 	}

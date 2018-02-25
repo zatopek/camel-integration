@@ -5,6 +5,7 @@ import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.component.gson.GsonDataFormat;
 import org.apache.camel.component.jacksonxml.JacksonXMLDataFormat;
 import org.gautam.backbase.entities.GeocodeResponse;
+import org.gautam.backbase.translator.SimplifyGeocodeResponse;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
@@ -32,7 +33,8 @@ public class GeocodingRouter extends RouteBuilder {
 
 		from("activemq:queue:google.geocoding").setHeader(Exchange.HTTP_METHOD, constant("POST"))
 				.setHeader(Exchange.HTTP_QUERY, simple(geocodingAddress + "${body}" + "&" + geocodingKey))
-				.enrich("ahc:{{geocoding.endpoint}}{{geocoding.path}}").unmarshal(dataFormat).log("${body}").marshal(gsonDataFormat).log("${body}");
+				.enrich("ahc:{{geocoding.endpoint}}{{geocoding.path}}").unmarshal(dataFormat).log("${body}").transform()
+				.method(SimplifyGeocodeResponse.class, "transform").marshal(gsonDataFormat).log("${body}");
 
 	}
 }
