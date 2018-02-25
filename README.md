@@ -11,6 +11,7 @@ Each of the projects will have to be built with
 
 
 ### Run
+
 You will need to first have an activemq instance running.
 You can download a version from <http://activemq.apache.org/activemq-5153-release.html>
 
@@ -20,6 +21,8 @@ After download unzip to any folder of your choice and from the bin folder run
 
 *Note: This will occupy port 61616*
 
+####From source
+
 To run the example, you need to start up the servers in **each** project by typing
 
 	  mvn spring-boot:run
@@ -27,6 +30,12 @@ To run the example, you need to start up the servers in **each** project by typi
 *Note: The server project will run on port 8080 and the source project will run on port 8081*
 
 To stop the server hit <kbd>ctrl</kbd>+<kbd>c</kbd>
+
+####From built sample
+Under </quickstart> there are pre built jar files which can be used to run the sample.
+
+`java -jar quickstart/source-0.1-ALPHA.jar >> source.log &`
+`java -jar quickstart/service-0.1-ALPHA.jar >> service.log &`
 
 
 The web service endpoint address is:
