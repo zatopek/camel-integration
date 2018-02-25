@@ -8,6 +8,12 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
 
+/**
+ * A transport object to parse the XML response from geocoding api
+ * @author Gautam Velpula
+ *
+ */
+
 @XmlRootElement
 public class GeocodeResponse implements Serializable {
 	/**

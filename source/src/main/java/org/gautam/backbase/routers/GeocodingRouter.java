@@ -11,6 +11,14 @@ import org.springframework.stereotype.Component;
 
 import com.fasterxml.jackson.databind.DeserializationFeature;
 
+/**
+ * A router configuration with the route from jms to geocoding, tranform from
+ * xml to pojo to simpler pojo to finally json
+ * 
+ * @author Gautam Velpul
+ *
+ */
+
 @Component
 public class GeocodingRouter extends RouteBuilder {
 
@@ -26,9 +34,9 @@ public class GeocodingRouter extends RouteBuilder {
 	@Override
 	public void configure() throws Exception {
 		JacksonXMLDataFormat dataFormat = new JacksonXMLDataFormat(GeocodeResponse.class);
+		//Needed since we are not parsing all available data
 		dataFormat.disableFeature(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
-		dataFormat.setAllowJmsType(true);
-
+		
 		GsonDataFormat gsonDataFormat = new GsonDataFormat();
 
 		from("activemq:queue:google.geocoding").setHeader(Exchange.HTTP_METHOD, constant("POST"))

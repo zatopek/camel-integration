@@ -1,13 +1,18 @@
 package org.gautam.backbase;
 
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
+/**
+ * A trivial configuration class for this project
+ * 
+ * @author Gautam Velpula
+ *
+ */
+
 @SpringBootApplication
-@EnableAutoConfiguration
-@ComponentScan("org.gautam.backbase.routers")
+@ComponentScan({ "org.gautam.backbase.routers", "org.gautam.backbase.translator" })
 public class Main {
 
 	public static void main(String[] args) {

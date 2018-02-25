@@ -2,6 +2,11 @@ package org.gautam.backbase.entities;
 
 import java.io.Serializable;
 
+/**
+ * A simplified response object that will be used for our local ecosystem
+ * @author Gautam Velpula
+ *
+ */
 public class SimpleAddressResponse implements Serializable {
 
 	/**

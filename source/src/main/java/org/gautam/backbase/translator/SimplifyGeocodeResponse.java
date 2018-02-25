@@ -7,6 +7,11 @@ import org.gautam.backbase.entities.GeocodeResponse.AddressComponent;
 import org.gautam.backbase.entities.SimpleAddressResponse;
 import org.springframework.stereotype.Component;
 
+/**
+ * A transformer to simplify the complex {@link GeocodeResponse} to {@link SimpleAddressResponse}
+ * @author Gautam Velpula
+ *
+ */
 @Component
 public class SimplifyGeocodeResponse {
 	public static SimpleAddressResponse transform(GeocodeResponse geocodeResponse) {
