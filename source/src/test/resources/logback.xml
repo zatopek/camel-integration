@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<property name="LOG_PATTERN"
+		value="[%d{yyyy-MM-dd HH:mm:ss.SSS}] - ${PID:-????} %5p [%t] --- %c{1}: %m%n" />
+	<appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>${LOG_PATTERN}</pattern>
+		</encoder>
+	</appender>
+	<logger name="org.apache.camel" level="ERROR" />
+	<logger name="com.fasterxml.jackson.databind" level="TRACE"/>
+	<logger name="org.gautam.backbase.routers" level="TRACE" />
+	<root level="INFO">
+		<appender-ref ref="CONSOLE" />
+	</root>
+</configuration>
